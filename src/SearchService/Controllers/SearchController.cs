@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson.Serialization.IdGenerators;
 using MongoDB.Entities;
 using SearchService.Models;
 using SearchService.RequestHelpers;
