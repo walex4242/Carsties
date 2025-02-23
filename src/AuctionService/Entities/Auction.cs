@@ -24,6 +24,4 @@ public class Auction
 
     public Item Item { get; set; }
 
-
-
 }
