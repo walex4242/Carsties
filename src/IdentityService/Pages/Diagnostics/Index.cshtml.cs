@@ -16,8 +16,8 @@ public class Index : PageModel
 
     public async Task<IActionResult> OnGet()
     {
-        var localAddresses = new List<string?> { "127.0.0.1", "::1" };
-        if(HttpContext.Connection.LocalIpAddress != null)
+        var localAddresses = new List<string> { "127.0.0.1", "::1" };
+        if (HttpContext.Connection.LocalIpAddress != null)
         {
             localAddresses.Add(HttpContext.Connection.LocalIpAddress.ToString());
         }
