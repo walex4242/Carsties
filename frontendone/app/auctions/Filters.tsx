@@ -14,7 +14,7 @@ const orderButtons = [
         value: 'make'
     },
     {
-        label: 'End date',
+        label: 'Ending soon',
         icon: AiOutlineClockCircle,
         value: 'endingSoon'
     },
@@ -49,46 +49,51 @@ export default function Filters() {
     const orderBy = useParamsStore(state => state.orderBy);
     const filterBy = useParamsStore(state => state.filterBy);
     return (
-        <div className='flex justify-between items-center mb-4'>
-            <div>
-                <span className="uppercase text-sm text-gray-500 mr-2">Filter By</span>
-                <ButtonGroup>
+        <div className="flex flex-wrap sm:flex-nowrap justify-between items-center gap-4 mb-4">
+            {/* Filter By */}
+            <div className="flex flex-wrap items-center gap-2">
+                <span className="uppercase text-sm text-gray-500">Filter By</span>
+                <ButtonGroup className="flex flex-wrap gap-2">
                     {filterButtons.map(({ label, icon: Icon, value }) => (
                         <Button
                             key={value}
                             onClick={() => setParams({ filterBy: value })}
                             color={`${filterBy === value ? 'red' : 'gray'}`}
                         >
-                            <Icon className='mr-3 h-4 w-4' />
+                            <Icon className="mr-2 h-4 w-4" />
                             {label}
                         </Button>
                     ))}
                 </ButtonGroup>
             </div>
-            <div>
-                <span className="uppercase text-sm text-gray-500 mr-2">Order By</span>
-                <ButtonGroup>
+
+            {/* Order By */}
+            <div className="flex flex-wrap items-center gap-2">
+                <span className="uppercase text-sm text-gray-500">Order By</span>
+                <ButtonGroup className="flex flex-wrap gap-2">
                     {orderButtons.map(({ label, icon: Icon, value }) => (
                         <Button
                             key={value}
                             onClick={() => setParams({ orderBy: value })}
                             color={`${orderBy === value ? 'red' : 'gray'}`}
                         >
-                            <Icon className='mr-3 h-4 w-4' />
+                            <Icon className="mr-2 h-4 w-4" />
                             {label}
                         </Button>
                     ))}
                 </ButtonGroup>
             </div>
-            <div >
-                <span className="uppercase text-sm text-gray-500 mr-2">Page Size</span>
-                <ButtonGroup>
+
+            {/* Page Size */}
+            <div className="flex flex-wrap items-center gap-2">
+                <span className="uppercase text-sm text-gray-500">Page Size</span>
+                <ButtonGroup className="flex flex-wrap gap-2">
                     {pageSizeButtons.map((value, i) => (
                         <Button
                             key={i}
                             onClick={() => setParams({ pageSize: value })}
                             color={`${pageSize === value ? 'red' : 'gray'}`}
-                            className='focus:ring-0'
+                            className="focus:ring-0"
                         >
                             {value}
                         </Button>
@@ -96,5 +101,6 @@ export default function Filters() {
                 </ButtonGroup>
             </div>
         </div>
-    )
+    );
+
 }

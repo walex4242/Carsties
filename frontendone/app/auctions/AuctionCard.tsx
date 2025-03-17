@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import React from 'react'
 import CountdownTimer from './CountdownTimer'
 import CarImage from './CarImage'
@@ -22,4 +21,5 @@ export default function AuctionCard({ auction }: Props) {
             </div>
         </a>
     )
+
 }

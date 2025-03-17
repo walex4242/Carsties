@@ -24,4 +24,5 @@ export default function CarImage({ imageUrl }: Props) {
             onLoad={() => setLoading(false)}
         />
     )
+
 }
