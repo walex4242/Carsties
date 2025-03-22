@@ -9,7 +9,7 @@ export default async function Navbar() {
     const user = await getCurrentUser();
     return (
         <header
-            className='sticky top-0 z-50 flex flex-wrap justify-between items-center bg-white p-4 md:p-5 shadow-md w-full'
+            className='sticky top-0 z-50 flex flex-wrap justify-between items-center bg-white p-4 md:p-5 shadow-md w-full py-5 px-5 text-gray-800'
         >
             <Logo />
             <Search />

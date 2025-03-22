@@ -19,7 +19,7 @@ const orderButtons = [
         value: 'endingSoon'
     },
     {
-        label: 'Recently added',
+        label: 'Recently Added',
         icon: BsFillStopCircleFill,
         value: 'new'
     }
@@ -57,7 +57,10 @@ export default function Filters() {
                     {filterButtons.map(({ label, icon: Icon, value }) => (
                         <Button
                             key={value}
-                            onClick={() => setParams({ filterBy: value })}
+                            onClick={() => {
+                                setParams({ filterBy: value })
+                                console.log("Filterby set to:", value);
+                            }}
                             color={`${filterBy === value ? 'red' : 'gray'}`}
                         >
                             <Icon className="mr-2 h-4 w-4" />
@@ -74,7 +77,9 @@ export default function Filters() {
                     {orderButtons.map(({ label, icon: Icon, value }) => (
                         <Button
                             key={value}
-                            onClick={() => setParams({ orderBy: value })}
+                            onClick={() => {
+                                setParams({ orderBy: value });
+                            }}
                             color={`${orderBy === value ? 'red' : 'gray'}`}
                         >
                             <Icon className="mr-2 h-4 w-4" />

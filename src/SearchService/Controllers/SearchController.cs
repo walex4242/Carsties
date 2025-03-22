@@ -14,28 +14,43 @@ public class SearchController : ControllerBase
     {
         var query = DB.PagedSearch<Item, Item>();
 
-        query.Sort(x => x.Ascending(a => a.Make));
-
         if (!string.IsNullOrEmpty(searchParams.SearchTerm))
         {
             query.Match(Search.Full, searchParams.SearchTerm).SortByTextScore();
         }
 
-        query = searchParams.OrderBy switch
+        // Apply sorting based on orderBy
+        switch (searchParams.OrderBy)
         {
-            "make" => query.Sort(x => x.Ascending(a => a.Make))
-            .Sort(x => x.Ascending(a => a.Model)),
-            "new" => query.Sort(x => x.Descending(a => a.CreatedAt)),
-            _ => query.Sort(x => x.Ascending(a => a.AuctionEnd))
-        };
+            case "make":
+                query.Sort(x => x.Ascending(a => a.Make))
+                     .Sort(x => x.Ascending(a => a.Model));
+                break;
 
-        query = searchParams.FilterBy switch
+            case "new":
+                query.Sort(x => x.Descending(a => a.CreatedAt));
+                break;
+
+            case "endingSoon":
+                query.Sort(x => x.Ascending(a => a.AuctionEnd));
+                break;
+        }
+
+        // Apply filtering based on filterBy
+        switch (searchParams.FilterBy)
         {
-            "finished" => query.Match(x => x.AuctionEnd < DateTime.UtcNow),
-            "endingSoon" => query.Match(x => x.AuctionEnd < DateTime.UtcNow.AddHours(6)
-            && x.AuctionEnd > DateTime.UtcNow),
-            _ => query.Match(x => x.AuctionEnd > DateTime.UtcNow)
-        };
+            case "finished":
+                query.Match(x => x.AuctionEnd < DateTime.UtcNow);
+                break;
+
+            case "endingSoon":
+                query.Match(x => x.AuctionEnd < DateTime.UtcNow.AddHours(6) && x.AuctionEnd > DateTime.UtcNow);
+                break;
+
+            default:
+                query.Match(x => x.AuctionEnd > DateTime.UtcNow);
+                break;
+        }
 
         if (!string.IsNullOrEmpty(searchParams.Seller))
         {
