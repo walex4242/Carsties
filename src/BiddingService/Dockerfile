@@ -16,9 +16,9 @@ COPY src/IdentityService/IdentityService.csproj src/IdentityService/IdentityServ
 RUN dotnet restore Carsties.sln
 
 # Copy the entire source code
-COPY src/SearchService src/SearchService
+COPY src/BiddingService src/BiddingService
 COPY src/Contracts src/Contracts
-WORKDIR /app/src/SearchService
+WORKDIR /app/src/BiddingService
 
 # Publish the AuctionService project explicitly
 RUN dotnet publish -c Release -o /app/src/out
@@ -31,4 +31,4 @@ WORKDIR /app
 COPY --from=build /app/src/out .
 
 # Set the entry point for the application
-ENTRYPOINT [ "dotnet", "SearchService.dll" ]
+ENTRYPOINT [ "dotnet", "BiddingService.dll" ]
