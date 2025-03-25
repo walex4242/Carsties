@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GatewayService", "src\Gatew
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiddingService", "src\BiddingService\BiddingService.csproj", "{E2D79179-931D-4118-9B0E-5B063AF484BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService", "src\NotificationService\NotificationService.csproj", "{38BBE43A-950D-4362-8C01-AD4A33D687F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,18 @@ Global
 		{E2D79179-931D-4118-9B0E-5B063AF484BC}.Release|x64.Build.0 = Release|Any CPU
 		{E2D79179-931D-4118-9B0E-5B063AF484BC}.Release|x86.ActiveCfg = Release|Any CPU
 		{E2D79179-931D-4118-9B0E-5B063AF484BC}.Release|x86.Build.0 = Release|Any CPU
+		{38BBE43A-950D-4362-8C01-AD4A33D687F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38BBE43A-950D-4362-8C01-AD4A33D687F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38BBE43A-950D-4362-8C01-AD4A33D687F7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{38BBE43A-950D-4362-8C01-AD4A33D687F7}.Debug|x64.Build.0 = Debug|Any CPU
+		{38BBE43A-950D-4362-8C01-AD4A33D687F7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{38BBE43A-950D-4362-8C01-AD4A33D687F7}.Debug|x86.Build.0 = Debug|Any CPU
+		{38BBE43A-950D-4362-8C01-AD4A33D687F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38BBE43A-950D-4362-8C01-AD4A33D687F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38BBE43A-950D-4362-8C01-AD4A33D687F7}.Release|x64.ActiveCfg = Release|Any CPU
+		{38BBE43A-950D-4362-8C01-AD4A33D687F7}.Release|x64.Build.0 = Release|Any CPU
+		{38BBE43A-950D-4362-8C01-AD4A33D687F7}.Release|x86.ActiveCfg = Release|Any CPU
+		{38BBE43A-950D-4362-8C01-AD4A33D687F7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,5 +124,6 @@ Global
 		{4B1FDD0F-0D7D-45F7-8F50-9916891DFE8F} = {5918309D-864B-4562-8654-A60C50121751}
 		{20FCA5F6-086F-4976-8B01-B3CA8A8AF7B8} = {5918309D-864B-4562-8654-A60C50121751}
 		{E2D79179-931D-4118-9B0E-5B063AF484BC} = {5918309D-864B-4562-8654-A60C50121751}
+		{38BBE43A-950D-4362-8C01-AD4A33D687F7} = {5918309D-864B-4562-8654-A60C50121751}
 	EndGlobalSection
 EndGlobal

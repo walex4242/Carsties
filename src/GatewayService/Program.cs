@@ -11,8 +11,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 {
     options.Authority = builder.Configuration["IdentityServiceUrl"];
     options.RequireHttpsMetadata = false;
-    // options.TokenValidationParameters.ValidateAudience = false;
-    // options.TokenValidationParameters.NameClaimType = "username";
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,  // ✅ Ensure issuer validation is enabled
@@ -22,7 +20,19 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     };
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("customPolicy", b =>
+    {
+        b.AllowAnyHeader()
+        .AllowAnyMethod().AllowCredentials()
+        .WithOrigins(builder.Configuration["ClientApp"]);
+    });
+});
+
 var app = builder.Build();
+
+app.UseCors();
 
 app.MapReverseProxy();
 
