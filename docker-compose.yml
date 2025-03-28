@@ -72,7 +72,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_URLS=http://+:80
-      - IssuerUri=http://identity-svc
+      - IssuerUri=http://localhost:5001
       - ConnectionStrings__DefaultConnection=Server=postgres;Port=5432;User Id=postgres;Password=postgrespw;Database=identity
     ports:
       - 5001:80
