@@ -1,7 +1,7 @@
 'use server';
 
 import { Auction, Bid, PagedResult } from '../types';
-import { fetchWrapper } from '@/lib/fetchWrapper';
+import { fetchWrapper } from '@/app/lib/fetchWrapper';
 import { revalidatePath } from 'next/cache';
 import { FieldValues } from 'react-hook-form';
 
